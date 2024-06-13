@@ -1,4 +1,6 @@
 package com.app_usuarios;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Consumidor {
 
     UserRepository userRepository;
-
+    private List<User> usuarios  = new ArrayList<>();
     public Consumidor(UserRepository userRepository){
         this.userRepository = userRepository;
     }
@@ -30,6 +32,7 @@ public class Consumidor {
         user.setId(Long.parseLong(id));
         user.setNombre(data[1]);
         user.setApellido(data[2]);
+        usuarios.add(user);
         userRepository.save(user);
     	System.out.println("Ha sido insertado correctamente ");
       }
@@ -38,7 +41,9 @@ public class Consumidor {
     	borrarUsuario(message);
     }
 
-
+    public List<User> getUser() {
+        return usuarios;
+    }
 
 	private void borrarUsuario(String message) throws JsonProcessingException {
     	ObjectMapper mapper = new ObjectMapper();
