@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <table class="table table-striped">
+          <thead>
+            <tr class="row">
+              <th>ID</th>
+              <th>NOMBRE</th>
+              <th>APELLIDO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuar of usuarios">
+              <td>{{ usuar.id }}</td>
+              <td>{{usuar.nombre}}</td>
+
+              <td>{{ usuar.apellido }}</td>
+            
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <button class="btn btn-info" [routerLink]="['/all']">volver</button>
+  </div>
+  

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form class="form-inline">
+        <a class="btn btn-primary" [routerLink]="['/add']">+</a>
+      </form>
+      <form class="form-inline">
+        <a class="btn btn-primary" [routerLink]="['/get']">Consumer</a>
+      </form>
+      <br>
+      <table class="table table-striped">
+        <thead>
+          <tr class="row">
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.apellido }}</td>
+            <td>
+              <a class="btn btn-info" [routerLink]="['/add']">Editar</a>
+            </td>
+            <td>
+              <a class="btn btn-danger" (click)="borrarUsuario(usuario.id)">Borrar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
