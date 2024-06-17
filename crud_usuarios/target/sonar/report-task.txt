@@ -1,0 +1,6 @@
+projectKey=com.app-usuarios:crud-usuarios
+serverUrl=http://localhost:9000
+serverVersion=10.5.1.90531
+dashboardUrl=http://localhost:9000/dashboard?id=com.app-usuarios%3Acrud-usuarios
+ceTaskId=35e98b6f-a083-4dbf-a0b5-6a029ff2c458
+ceTaskUrl=http://localhost:9000/api/ce/task?id=35e98b6f-a083-4dbf-a0b5-6a029ff2c458
