@@ -7,31 +7,35 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  BASE_URL = "http://localhost:8098/crud"
+  CRUD_URL = "http://localhost:8098/crud"
+  CONUSMIDOR_URL = 'http://localhost:8081';
+
 
   constructor(private http: HttpClient) { }
 
   obtenerUsuarios(): Observable<UserModel[]> {
-    return this.http.get<UserModel[]>(this.BASE_URL+'/all');
+    return this.http.get<UserModel[]>(this.CRUD_URL+'/all');
   }
 
   obtenerUsuario(id: string) {
-    return this.http.get<UserModel[]>(`${this.BASE_URL}/get/${id}`);
+    return this.http.get<UserModel[]>(`${this.CRUD_URL}/get/${id}`);
   }
 
   agregarUsuario(usuario: UserModel) {
-    return this.http.post<string>(`${this.BASE_URL}/add`, usuario);
+    return this.http.post<string>(`${this.CRUD_URL}/add`, usuario);
   }
 
   actualizarUsuario(usuario: UserModel) {
-    return this.http.put<string>(`${this.BASE_URL}/update/${usuario.id}`, usuario)
+    return this.http.put<string>(`${this.CRUD_URL}/update/${usuario.id}`, usuario)
   }
-
+  getUsuarioCola(): Observable<UserModel[]>{
+    return this.http.get<UserModel[]>(`${this.CONUSMIDOR_URL}/usuarios`)
+  }
 
  
   borrarUsuario(id: number) {
   console.log('Llamando al método borrarUsuario en el servicio');
 
-    return this.http.delete(`${this.BASE_URL}/delete/${id}`)
+    return this.http.delete(`${this.CRUD_URL}/delete/${id}`)
   }
 }

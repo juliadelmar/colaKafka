@@ -1,0 +1,4 @@
+com\app_usuarios\crud_usuarios\IUserRepository.class
+com\app_usuarios\crud_usuarios\UserController.class
+com\app_usuarios\crud_usuarios\User.class
+com\app_usuarios\crud_usuarios\CrudUsuariosApplication.class
