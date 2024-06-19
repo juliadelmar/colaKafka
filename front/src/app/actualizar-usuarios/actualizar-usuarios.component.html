@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insertar Usuario</title>
+    <style>
+ 
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Actualizar Usuario</h2>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" required>
+      <div class="boton-container">
+        <button type="submit" class="boton">Actualizar</button>
+        <button type="button" class="boton boton-secundario" (click)="irAListarUsuarios()">Volver</button>
+      </div>
+    </form>
+  </body>
+</html>

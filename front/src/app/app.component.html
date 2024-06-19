@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi Aplicación Angular</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+      #insertar, #usuarios {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      h1, h2 {
+        text-align: center;
+      }
+      .boton {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .boton:hover {
+        background-color: #45a049;
+      }
+      .boton-secundario {
+        background-color: #f44336;
+      }
+      .boton-secundario:hover {
+        background-color: #e53935;
+      }
+      .boton-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      form label, form input {
+        display: block;
+        width: 100%;
+      }
+      form input {
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <router-outlet></router-outlet>
+  </body>
+</html>

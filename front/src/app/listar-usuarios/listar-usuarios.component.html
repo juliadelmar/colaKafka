@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Usuarios</title>
+    
+  </head>
+  <body id="body">
+    <h1>USUARIOS</h1>
+    <div *ngFor="let usuario of usuarios" class="usuario-card">
+      <div class="usuario-info">
+        <div>ID: {{usuario.id}}</div>
+        <div>Nombre: {{usuario.nombre}}</div>
+        <div class="acciones">
+          <button class="boton" (click)="borrarUsuario(usuario.id)">Borrar</button>
+          <button class="boton" (click)="irAActualizarUsuario(usuario.id)">Actualizar</button>
+        </div>
+      </div>
+    </div>
+    <div class="boton-container">
+      <button class="boton" (click)="irAInsertarUsuario()">Insertar</button>
+      <button class="boton" (click)="listarUltimosUsuarios()">Últimos Usuarios</button>
+    </div>
+  </body>
+</html>

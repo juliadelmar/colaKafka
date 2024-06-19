@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Últimos Usuarios Añadidos</title>
+  </head>
+  <body id="body">
+    <h1>ÚLTIMOS USUARIOS AÑADIDOS</h1>
+    <div *ngFor="let usuario of usuarios" class="usuario-card">
+      <div class="usuario-info">
+        <div>ID: {{usuario.id}}</div>
+        <div>Nombre: {{usuario.nombre}}</div>
+      </div>
+    </div>
+    <button type="button" class="boton" (click)="irAListarUsuarios()">Volver</button>
+  </body>
+</html>
