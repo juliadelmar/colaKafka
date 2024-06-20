@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class UserController {
 
     @Autowired
     private IUserRepository userRepository;
-
+    @CrossOrigin(origins = "*")
     @PostMapping(path="/add")
     public @ResponseBody String addNewUser (@RequestBody User user) {
     	User n = new User();
@@ -33,20 +34,23 @@ public class UserController {
     	return "Guardado";
     	
     }
+    @CrossOrigin(origins = "*")
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers(){
     	return userRepository.findAll();
     }
+    @CrossOrigin(origins = "*")
     @GetMapping(path="/get/{id}")
     public @ResponseBody Optional<User> getAllUser(@PathVariable Long id){
     	return userRepository.findById(id);
     }
+    @CrossOrigin(origins = "*")
     @DeleteMapping(path="/delete/{id}")
     public @ResponseBody String deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
         return "Usuario eliminado";
     }
- 
+    @CrossOrigin(origins = "*")
     @PutMapping(path="/update/{id}")
     public @ResponseBody String updateUser(@PathVariable Long id, @RequestBody User user) {
         User n = userRepository.findById(id).orElseThrow();
