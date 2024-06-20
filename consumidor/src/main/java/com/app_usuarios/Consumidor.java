@@ -5,9 +5,6 @@ import java.util.List;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 @Service
 public class Consumidor {
 
@@ -20,12 +17,11 @@ public class Consumidor {
    
 
     @KafkaListener(topics="insertarUsuario", groupId="1")
-    public void getClientes(String message) throws JsonProcessingException{
-        System.out.println("Cliente: " + message);
+    public void getClientes(String message){
        convertirUsuario(message);
        
      }
-    private void convertirUsuario(String message) throws JsonProcessingException {
+    private void convertirUsuario(String message){
         String[] data = message.split(",");
         User user = new User();
         String id = data[0];
@@ -34,23 +30,12 @@ public class Consumidor {
         user.setApellido(data[2]);
         usuarios.add(user);
         userRepository.save(user);
-    	System.out.println("Ha sido insertado correctamente ");
       }
-    @KafkaListener(topics="topico2", groupId="1")
-    public void borrarCliente(String message) throws JsonProcessingException{
-    	borrarUsuario(message);
-    }
 
     public List<User> getUser() {
         return usuarios;
     }
 
-	private void borrarUsuario(String message) throws JsonProcessingException {
-    	ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(message);
-    	Long idUsusario = mapper.readValue(json, Long.class);
-		userRepository.deleteById(idUsusario);
-	}
-	
+
 }
     
