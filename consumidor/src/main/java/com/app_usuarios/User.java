@@ -12,10 +12,7 @@ public class User {
     private String nombre;
     private String apellido;
 
-    public User(){
-        
 
-    }
 
 	public void setId(Long id) {
 		this.id = id;
